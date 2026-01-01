@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl"
+       version="1.0"
+       class="in-text"
+       default-locale="en-US"
+       demote-non-dropping-particle="sort-only">
+
+  <info>
+    <title>Numeric Harvard (BSI) – Ukrainian References</title>
+    <title-short>Harvard-BSI-UA</title-short>
+    <id>https://github.com/VtlNmnk/my-csl-styles/numeric-harvard-bsi-ua</id>
+    <category citation-format="numeric"/>
+  </info>
+
+  <!-- ===== MACROS ===== -->
+
+  <macro name="author">
+    <names variable="author">
+      <name initialize-with="." and="text"/>
+    </names>
+  </macro>
+
+  <macro name="title">
+    <text variable="title" quotes="true"/>
+  </macro>
+
+  <macro name="container">
+    <text variable="container-title" font-style="italic"/>
+  </macro>
+
+  <macro name="issued-year">
+    <date variable="issued">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <macro name="volume-issue">
+    <group delimiter=", ">
+      <text variable="volume" prefix="vol. "/>
+      <text variable="issue" prefix="no. "/>
+    </group>
+  </macro>
+
+  <macro name="pages">
+    <group>
+      <label variable="page" form="short" suffix=" "/>
+      <text variable="page"/>
+    </group>
+  </macro>
+
+  <macro name="doi">
+    <choose>
+      <if variable="DOI">
+        <text variable="DOI" prefix="DOI: "/>
+      </if>
+      <else-if variable="URL">
+        <text variable="URL" prefix="Available at: "/>
+      </else-if>
+    </choose>
+  </macro>
+
+  <!-- ===== IN-TEXT CITATION ===== -->
+
+  <citation collapse="citation-number">
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
+    <layout prefix="[" suffix="]" delimiter=", ">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <!-- ===== BIBLIOGRAPHY ===== -->
+
+  <bibliography entry-spacing="0"
+                second-field-align="flush">
+
+    <layout suffix=".">
+      <text variable="citation-number" prefix="[" suffix="] "/>
+      <text macro="author" suffix=", "/>
+      <text macro="title" suffix=", "/>
+
+      <choose>
+
+        <!-- ===== JOURNAL ARTICLES ===== -->
+        <if type="article-journal">
+          <group delimiter=", ">
+            <text macro="container"/>
+            <text macro="issued-year"/>
+            <text macro="volume-issue"/>
+            <text macro="pages"/>
+            <text macro="doi"/>
+          </group>
+        </if>
+
+        <!-- ===== CONFERENCE PAPERS / PROCEEDINGS ===== -->
+        <else-if type="paper-conference chapter" match="any">
+          <group delimiter=", ">
+            <text macro="container"/>
+            <text macro="issued-year"/>
+            <text macro="pages"/>
+            <text macro="doi"/>
+          </group>
+        </else-if>
+
+        <!-- ===== BOOKS ===== -->
+        <else-if type="book">
+          <group delimiter=", ">
+            <text macro="container"/>
+            <text macro="issued-year"/>
+            <text macro="doi"/>
+          </group>
+        </else-if>
+
+        <!-- ===== PREPRINT / ARXIV / FALLBACK ===== -->
+        <else>
+          <group delimiter=", ">
+            <text macro="issued-year"/>
+            <text macro="doi"/>
+          </group>
+        </else>
+
+      </choose>
+    </layout>
+  </bibliography>
+
+</style>
