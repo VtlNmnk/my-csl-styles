@@ -28,7 +28,7 @@
   </macro>
   <macro name="volume-issue">
     <group delimiter=", ">
-      <text variable="volume" prefix="vol. "/>
+      <number variable="volume" prefix="vol. "/>
       <number variable="issue" prefix="no. "/>
     </group>
   </macro>
