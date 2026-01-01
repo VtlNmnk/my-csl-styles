@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl"
        version="1.0"
-       class="in-text"
-       default-locale="en-US"
-       demote-non-dropping-particle="sort-only">
+       default-locale="en-US">
 
   <info>
     <title>Numeric Harvard (BSI) – Ukrainian References</title>
     <title-short>Harvard-BSI-UA</title-short>
     <id>https://github.com/VtlNmnk/my-csl-styles/numeric-harvard-bsi-ua</id>
+    <author>
+      <name>Custom</name>
+    </author>
     <category citation-format="numeric"/>
+    <updated>2026-01-01</updated>
   </info>
 
   <!-- ===== MACROS ===== -->
 
   <macro name="author">
     <names variable="author">
-      <name initialize-with="." and="text"/>
+      <name initialize-with="." delimiter=", "/>
     </names>
   </macro>
 
@@ -28,7 +30,7 @@
     <text variable="container-title" font-style="italic"/>
   </macro>
 
-  <macro name="issued-year">
+  <macro name="year">
     <date variable="issued">
       <date-part name="year"/>
     </date>
@@ -37,7 +39,7 @@
   <macro name="volume-issue">
     <group delimiter=", ">
       <text variable="volume" prefix="vol. "/>
-      <text variable="issue" prefix="no. "/>
+      <number variable="issue" prefix="no. "/>
     </group>
   </macro>
 
@@ -48,7 +50,7 @@
     </group>
   </macro>
 
-  <macro name="doi">
+  <macro name="access">
     <choose>
       <if variable="DOI">
         <text variable="DOI" prefix="DOI: "/>
@@ -72,9 +74,7 @@
 
   <!-- ===== BIBLIOGRAPHY ===== -->
 
-  <bibliography entry-spacing="0"
-                second-field-align="flush">
-
+  <bibliography entry-spacing="0" second-field-align="flush">
     <layout suffix=".">
       <text variable="citation-number" prefix="[" suffix="] "/>
       <text macro="author" suffix=", "/>
@@ -82,41 +82,41 @@
 
       <choose>
 
-        <!-- ===== JOURNAL ARTICLES ===== -->
+        <!-- JOURNAL -->
         <if type="article-journal">
           <group delimiter=", ">
             <text macro="container"/>
-            <text macro="issued-year"/>
+            <text macro="year"/>
             <text macro="volume-issue"/>
             <text macro="pages"/>
-            <text macro="doi"/>
+            <text macro="access"/>
           </group>
         </if>
 
-        <!-- ===== CONFERENCE PAPERS / PROCEEDINGS ===== -->
+        <!-- CONFERENCE / PROCEEDINGS -->
         <else-if type="paper-conference chapter" match="any">
           <group delimiter=", ">
             <text macro="container"/>
-            <text macro="issued-year"/>
+            <text macro="year"/>
             <text macro="pages"/>
-            <text macro="doi"/>
+            <text macro="access"/>
           </group>
         </else-if>
 
-        <!-- ===== BOOKS ===== -->
+        <!-- BOOK -->
         <else-if type="book">
           <group delimiter=", ">
             <text macro="container"/>
-            <text macro="issued-year"/>
-            <text macro="doi"/>
+            <text macro="year"/>
+            <text macro="access"/>
           </group>
         </else-if>
 
-        <!-- ===== PREPRINT / ARXIV / FALLBACK ===== -->
+        <!-- FALLBACK -->
         <else>
           <group delimiter=", ">
-            <text macro="issued-year"/>
-            <text macro="doi"/>
+            <text macro="year"/>
+            <text macro="access"/>
           </group>
         </else>
 
