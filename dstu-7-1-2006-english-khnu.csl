@@ -72,7 +72,7 @@
           <group delimiter=", ">
             <text macro="title"/>
             <text macro="year-after-title"/>
-            <text variable="container-title" font-style="italic"/>
+            <text variable="container-title"/>
             <text macro="pages"/>
             <text macro="doi"/>
           </group>
@@ -81,7 +81,7 @@
           <group delimiter=", ">
             <text macro="title"/>
             <text macro="year-after-title"/>
-            <text variable="container-title" font-style="italic"/>
+            <text variable="container-title"/>
             <group>
               <text variable="volume"/>
               <text variable="issue" prefix="(" suffix=")"/>
