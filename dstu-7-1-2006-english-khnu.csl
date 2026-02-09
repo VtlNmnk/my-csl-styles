@@ -1,49 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl"
-       version="1.0"
        class="in-text"
+       version="1.0"
+       demote-non-dropping-particle="sort-only"
        default-locale="en-US">
 
   <info>
     <title>DSTU 7.1:2006 – English (KhNU-style)</title>
     <title-short>DSTU 7.1 EN (KhNU)</title-short>
     <id>https://github.com/VtlNmnk/my-csl-styles/dstu-7-1-2006-english-khnu</id>
+    <author>
+      <name>Custom</name>
+    </author>
     <category citation-format="numeric"/>
     <updated>2026-01-01</updated>
   </info>
 
   <!-- AUTHORS -->
-  <macro name="authors">
+  <macro name="author">
     <names variable="author">
       <name initialize-with="." delimiter=", "/>
     </names>
   </macro>
 
-  <!-- YEAR -->
-  <macro name="year">
-    <date variable="issued">
-      <date-part name="year"/>
-    </date>
+  <!-- TITLE (NO QUOTES) -->
+  <macro name="title">
+    <text variable="title"/>
+  </macro>
+
+  <!-- PAGES -->
+  <macro name="page">
+    <group>
+      <text variable="page" prefix="pp. "/>
+    </group>
   </macro>
 
   <!-- IN-TEXT -->
   <citation collapse="citation-number">
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
     <layout prefix="[" suffix="]">
       <text variable="citation-number"/>
     </layout>
   </citation>
 
   <!-- BIBLIOGRAPHY -->
-  <bibliography>
+  <bibliography entry-spacing="0" second-field-align="flush">
     <layout suffix=".">
       <text variable="citation-number" prefix="[" suffix="] "/>
-      <text macro="authors" suffix=", "/>
-      <text variable="title" suffix=", "/>
+      <text macro="author" suffix=", "/>
+      <text macro="title" suffix=", "/>
+
+      <!-- SOURCE -->
       <text variable="container-title" suffix=", "/>
-      <text macro="year" suffix=", "/>
-      <text variable="volume" prefix="Vol. " suffix=", "/>
-      <text variable="issue" prefix="No. " suffix=", "/>
-      <text variable="page" prefix="pp. " suffix=", "/>
+
+      <!-- YEAR -->
+      <date variable="issued" suffix=", ">
+        <date-part name="year"/>
+      </date>
+
+      <!-- VOLUME / ISSUE -->
+      <number variable="volume" prefix="Vol. " suffix=", "/>
+      <number variable="issue" prefix="No. " suffix=", "/>
+
+      <!-- PAGES -->
+      <text macro="page" suffix=", "/>
+
+      <!-- DOI / URL -->
       <text variable="DOI"/>
       <text variable="URL"/>
     </layout>
