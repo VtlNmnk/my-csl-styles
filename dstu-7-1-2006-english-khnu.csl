@@ -8,122 +8,44 @@
     <title>DSTU 7.1:2006 – English (KhNU-style)</title>
     <title-short>DSTU 7.1 EN (KhNU)</title-short>
     <id>https://github.com/VtlNmnk/my-csl-styles/dstu-7-1-2006-english-khnu</id>
-    <author>
-      <name>Custom</name>
-    </author>
     <category citation-format="numeric"/>
     <updated>2026-01-01</updated>
   </info>
 
-  <!-- ===== AUTHORS ===== -->
-
+  <!-- AUTHORS -->
   <macro name="authors">
     <names variable="author">
       <name initialize-with="." delimiter=", "/>
     </names>
   </macro>
 
-  <!-- ===== TITLE (NO QUOTES) ===== -->
-
-  <macro name="title">
-    <text variable="title"/>
-  </macro>
-
-  <!-- ===== SOURCE (NO ITALIC) ===== -->
-
-  <macro name="source">
-    <text variable="container-title"/>
-  </macro>
-
-  <!-- ===== YEAR ===== -->
-
+  <!-- YEAR -->
   <macro name="year">
     <date variable="issued">
       <date-part name="year"/>
     </date>
   </macro>
 
-  <!-- ===== VOLUME / NUMBER ===== -->
-
-  <macro name="volume-number">
-    <group delimiter=", ">
-      <number variable="volume" prefix="Vol. "/>
-      <number variable="issue" prefix="No. "/>
-    </group>
-  </macro>
-
-  <!-- ===== PAGES ===== -->
-
-  <macro name="pages">
-    <group>
-      <label variable="page" form="short" suffix=" "/>
-      <text variable="page"/>
-    </group>
-  </macro>
-
-  <!-- ===== DOI / URL ===== -->
-
-  <macro name="access">
-    <choose>
-      <if variable="DOI">
-        <text variable="DOI"/>
-      </if>
-      <else-if variable="URL">
-        <text variable="URL"/>
-      </else-if>
-    </choose>
-  </macro>
-
-  <!-- ===== IN-TEXT CITATION ===== -->
-
+  <!-- IN-TEXT -->
   <citation collapse="citation-number">
-    <sort>
-      <key variable="citation-number"/>
-    </sort>
-    <layout prefix="[" suffix="]" delimiter=", ">
+    <layout prefix="[" suffix="]">
       <text variable="citation-number"/>
     </layout>
   </citation>
 
-  <!-- ===== BIBLIOGRAPHY ===== -->
-
-  <bibliography entry-spacing="0" second-field-align="flush">
+  <!-- BIBLIOGRAPHY -->
+  <bibliography>
     <layout suffix=".">
       <text variable="citation-number" prefix="[" suffix="] "/>
       <text macro="authors" suffix=", "/>
-      <text macro="title" suffix=", "/>
-
-      <choose>
-
-        <!-- JOURNALS / CONFERENCES / BOOK CHAPTERS -->
-        <if type="article-journal paper-conference chapter" match="any">
-          <group delimiter=", ">
-            <text macro="source"/>
-            <text macro="year"/>
-            <text macro="volume-number"/>
-            <text macro="pages"/>
-            <text macro="access"/>
-          </group>
-        </if>
-
-        <!-- BOOKS -->
-        <else-if type="book">
-          <group delimiter=", ">
-            <text macro="source"/>
-            <text macro="year"/>
-            <text macro="access"/>
-          </group>
-        </else-if>
-
-        <!-- PREPRINT / OTHER -->
-        <else>
-          <group delimiter=", ">
-            <text macro="year"/>
-            <text macro="access"/>
-          </group>
-        </else>
-
-      </choose>
+      <text variable="title" suffix=", "/>
+      <text variable="container-title" suffix=", "/>
+      <text macro="year" suffix=", "/>
+      <text variable="volume" prefix="Vol. " suffix=", "/>
+      <text variable="issue" prefix="No. " suffix=", "/>
+      <text variable="page" prefix="pp. " suffix=", "/>
+      <text variable="DOI"/>
+      <text variable="URL"/>
     </layout>
   </bibliography>
 
