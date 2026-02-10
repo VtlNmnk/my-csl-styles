@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" default-locale="en-US" demote-non-dropping-particle="sort-only">
   <info>
-    <title>Custom IEEE-like (Year After Title)</title>
-    <title-short>IEEE-Year-After-Title</title-short>
-    <id>http://example.com/styles/ieee-year-after-title</id>
+    <title>DSTU 7.1:2006 – English (KhNU-style)</title>
+    <title-short>DSTU 7.1 EN (KhNU)</title-short>
+    <id>https://github.com/VtlNmnk/my-csl-styles/dstu-7-1-2006-english-khnu</id>
     <author>
       <name>Custom</name>
     </author>
