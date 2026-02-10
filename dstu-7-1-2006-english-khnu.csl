@@ -68,9 +68,9 @@
         <if type="paper-conference chapter" match="any">
           <group delimiter=", ">
             <text macro="title"/>
-            <text macro="year-after-title"/>
             <text variable="container-title"/>
             <text macro="pages"/>
+            <text macro="year-after-title"/>
             <text macro="doi"/>
           </group>
         </if>
