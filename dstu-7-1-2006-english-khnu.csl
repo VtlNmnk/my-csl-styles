@@ -85,6 +85,7 @@
         <else-if type="book">
           <group delimiter=", ">
             <text macro="title"/>
+            <text macro="pages"/>
             <text macro="year-after-title"/>
             <text macro="publisher"/>
           </group>
@@ -92,6 +93,7 @@
         <else-if type="webpage">
           <group delimiter=", ">
             <text macro="title"/>
+            <text macro="pages"/>
             <text macro="year-after-title"/>
             <text variable="URL"/>
           </group>
@@ -99,6 +101,7 @@
         <else>
           <group delimiter=", ">
             <text macro="title"/>
+            <text macro="pages"/>
             <text macro="year-after-title"/>
             <text variable="URL"/>
           </group>
