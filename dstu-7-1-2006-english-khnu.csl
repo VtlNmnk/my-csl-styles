@@ -24,7 +24,7 @@
   <macro name="title">
     <choose>
       <if type="book report motion_picture" match="any">
-        <text variable="title" font-style="italic"/>
+        <text variable="title"/>
       </if>
       <else>
         <text variable="title"/>
