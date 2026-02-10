@@ -37,10 +37,7 @@
     </date>
   </macro>
   <macro name="pages">
-    <group>
-      <label variable="page" form="short" suffix=" "/>
-      <text variable="page"/>
-    </group>
+    <text variable="page" prefix="pp. "/>
   </macro>
   <macro name="publisher">
     <group delimiter=", ">
