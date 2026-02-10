@@ -32,7 +32,7 @@
     </choose>
   </macro>
   <macro name="year-after-title">
-    <date variable="issued" suffix=",">
+    <date variable="issued">
       <date-part name="year"/>
     </date>
   </macro>
