@@ -16,11 +16,6 @@
       <name initialize-with="." and="text"/>
     </names>
   </macro>
-  <macro name="editor">
-    <names variable="editor">
-      <name initialize-with="." and="text"/>
-    </names>
-  </macro>
   <macro name="title">
     <choose>
       <if type="book report motion_picture" match="any">
